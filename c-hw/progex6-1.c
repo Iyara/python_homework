@@ -1,7 +1,8 @@
-/* programming exercise 6-1, pg 93 */
-/* find the square of the distance between two points */
+/* programming exercise 6-1 modified, pg 93 */
+/* find the distance between two points */
 
 #include <stdio.h>
+#include <math.h>
 char lineA[100];        /* input coordinates for point A */
 char lineB[100];        /* input coordinates for point B */
 float xA;               /* x coord of point A */
@@ -9,6 +10,7 @@ float yA;               /* y coord of point A */
 float xB;               /* x coord of point B */
 float yB;               /* y coord of point B */
 float csq;              /* square of distance c */
+float c;                /* actual length of distance c */
 
 int main()
 {
@@ -21,7 +23,8 @@ int main()
     sscanf(lineB, "%f %f", &xB, &yB);
 
     csq = ((xA - xB) * (xA - xB)) + ((yA - yB) * (yA - yB));
+    c = sqrt(csq);
 
-    printf("The square of the distance between A and B is %f\n", csq);
+    printf("The distance between A and B is %f\n", c);
     return (0);
 }
