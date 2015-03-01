@@ -1,20 +1,34 @@
-/* example 6-4, pg.92 */
-/* yes, I know it's wrong.  that's what it's an example of */
+/* was: example 6-4, pg.92 */
+/* now: exercise 6-2, pg 93 */
+/* adapt code from example 6-4 to determine the letter grade, given a numerical grade */
 
 #include <stdio.h>
 char line[80];      /* input line */
-int balance_owed;   /* amount owed */
+int grade;          /* numeric grade */
+char letter;     /* letter grade */
 
 int main()
 {
-    printf("Enter number of dollars owed:");
+    printf("Enter grade:");
     fgets(line, sizeof(line), stdin);
-    sscanf(line, "%d", &balance_owed);
+    sscanf(line, "%d", &grade);
 
-    if (balance_owed == 0)
-        printf("You owe nothing.");
+    if (grade >= 91) {
+        letter = 'A';
+    }
+    else if (grade >= 81) {
+        letter = 'B';
+    }
+    else if (grade >= 71) {
+        letter = 'C';
+    }
+    else if (grade >= 61) {
+        letter = 'D';
+    }
     else
-        printf("You owe %d dollars.\n", balance_owed);
+        letter = 'F';
+
+     printf("Your grade is %c\n", letter);
 
     return (0);
 }

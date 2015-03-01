@@ -1,14 +1,19 @@
-/* was: example 6-4, pg.92 */
-/* now: exercise 6-2, pg 93 */
-/* adapt code from example 6-4 (owe0.c) to determine the letter grade, given a numerical grade */
+/* exercise 6-3, pg 93 (using ex 6-2) */
+/* print letter grade from numerical grade, adding + or - as appropriate */
+/*this version is stuck on strcat */
 
 #include <stdio.h>
+#include <string.h>
 char line[80];      /* input line */
 int grade;          /* numeric grade */
 char letter;     /* letter grade */
+int plus;           /* the modulus of the number grade, to indicate +/- */
+char app;          /* the + or - to be appended to the grade */
 
 int main()
 {
+
+
     printf("Enter grade:");
     fgets(line, sizeof(line), stdin);
     sscanf(line, "%d", &grade);
@@ -28,7 +33,21 @@ int main()
     else
         letter = 'F';
 
-     printf("Your grade is %c\n", letter);
+    plus = grade % 10;
+
+    if (plus == 0) {
+        app = '+';
+    }
+    else if (plus <= 3) {
+        app = '-';
+    }
+    else if (plus >= 8) {
+        app = '+';
+    }
+
+    strcat(letter, app);
+
+    printf("Your grade is %c\n", letter);
 
     return (0);
 }
