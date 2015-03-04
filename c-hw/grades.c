@@ -19,30 +19,30 @@ int main()
     sscanf(line, "%d", &grade);
 
     if (grade >= 91) {
-        letter = 'A';
+        letter = "A";
     }
     else if (grade >= 81) {
-        letter = 'B';
+        letter = "B";
     }
     else if (grade >= 71) {
-        letter = 'C';
+        letter = "C";
     }
     else if (grade >= 61) {
-        letter = 'D';
+        letter = "D";
     }
     else
-        letter = 'F';
+        letter = "F";
 
     plus = grade % 10;
 
     if (plus == 0) {
-        app = '+';
+        letter = "F";
     }
     else if (plus <= 3) {
-        app = '-';
+        app = "-";
     }
     else if (plus >= 8) {
-        app = '+';
+        app = "+";
     }
 
     strcat(letter, app);
