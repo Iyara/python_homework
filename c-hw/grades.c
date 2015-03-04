@@ -13,41 +13,42 @@ char app;          /* the + or - to be appended to the grade */
 int main()
 {
 
-
     printf("Enter grade:");
     fgets(line, sizeof(line), stdin);
     sscanf(line, "%d", &grade);
 
     if (grade >= 91) {
-        letter = "A";
+        letter = 'A';
     }
     else if (grade >= 81) {
-        letter = "B";
+        letter = 'B';
     }
     else if (grade >= 71) {
-        letter = "C";
+        letter = 'C';
     }
     else if (grade >= 61) {
-        letter = "D";
+        letter = 'D';
     }
     else
-        letter = "F";
+        letter = 'F';
 
     plus = grade % 10;
 
-    if (plus == 0) {
-        letter = "F";
-    }
-    else if (plus <= 3) {
-        app = "-";
-    }
-    else if (plus >= 8) {
-        app = "+";
+    if (grade >= 61) {
+        if (plus == 0) {
+            app = '-';
+        }
+        else if (plus <= 3) {
+            app = '-';
+        }
+        else if (plus >= 8) {
+            app = '+';
+        }
     }
 
-    strcat(letter, app);
+/*  strcat(letter, app);  */
 
-    printf("Your grade is %c\n", letter);
+    printf("Your grade is %c%c\n", letter, app);
 
     return (0);
 }
