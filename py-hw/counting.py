@@ -1,3 +1,5 @@
+# worked exercise 5.1, taking an entered series of numbers
+# handling bad input, and producing average, total, and number of entries
 track = 0
 total = 0
 while True:
