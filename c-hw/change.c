@@ -18,18 +18,27 @@ int main()
     if (amt >= 25) {
         quarter = amt / 25;
         change = amt % 25;
-        printf("quarters %d change %d\n", quarter, change);
     }
+    else if (amt < 25) {
+        change = amt;
+    }
+
     if (change >= 10) {
         dime = change / 10;
         change = change % 10;
-        printf("dimes %d change %d\n", dime, change);
     }
+    else if (amt < 10) {
+        change = amt;
+    }
+
     if (change >= 5) {
-        nickel = change /10;
-        change = change % 10;
-        printf("nickels %d change %d\n", nickel, change);
+        nickel = change / 5;
+        change = change % 5;
     }
+    else if (amt < 5) {
+        change = amt;
+    }
+
     printf("Quarters: %d, Dimes: %d, Nickels: %d, Pennies: %d", quarter, dime, nickel, change);
     return (0);
 }
